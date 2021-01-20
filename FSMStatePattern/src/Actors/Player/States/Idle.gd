@@ -2,20 +2,22 @@ extends State
 
 
 func unhandled_input(event: InputEvent) -> void:
-	_parent.unhandled_input(event)
+	parent.unhandled_input(event)
 
 
-func physics_process(delta) -> void:
-	_parent.physics_process(delta)
-	if owner.is_on_floor() and _parent.get_move_direction().x != 0.0:
-		state_machine.transition_to(_parent.get_node("Run"))
+func physics_process(delta: float) -> void:
+	parent.physics_process(delta)
+	
+	if parent.direction.x != 0:
+		change_to("Move/Run")
 	elif not owner.is_on_floor():
-		state_machine.transition_to(_parent.get_node("Jump"))
-
-
+		change_to("Move/Jump")
+	
+	
 func enter(msg: Dictionary = {}) -> void:
-	pass
-
-
+	if "velocity" in msg:
+		parent.velocity = msg.velocity
+	
+	
 func exit() -> void:
 	pass

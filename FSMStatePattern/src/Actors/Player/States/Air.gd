@@ -8,10 +8,8 @@ func unhandled_input(event: InputEvent) -> void:
 func physics_process(delta: float) -> void:
 	parent.physics_process(delta)
 	
-	if parent.direction.x == 0.0:
+	if owner.is_on_floor():
 		change_to("Move/Idle")
-	elif not owner.is_on_floor():
-		change_to("Move/Jump")
 	
 	
 func enter(msg: Dictionary = {}) -> void:
@@ -20,3 +18,4 @@ func enter(msg: Dictionary = {}) -> void:
 	
 func exit() -> void:
 	pass
+	
