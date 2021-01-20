@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "Bumper",
+"language": "GDScript",
+"path": "res://src/Objects/Bumper.gd"
+}, {
+"base": "Node",
+"class": "Health",
+"language": "GDScript",
+"path": "res://src/Combat/Health/Health.gd"
+}, {
 "base": "Node",
 "class": "State",
 "language": "GDScript",
@@ -20,14 +30,20 @@ _global_script_classes=[ {
 "path": "res://src/Main/StateMachine/StateMachine.gd"
 } ]
 _global_script_class_icons={
+"Bumper": "",
+"Health": "",
 "State": "",
 "StateMachine": ""
 }
 
 [application]
 
-config/name="FSMStatePattern"
-config/icon="res://icon.png"
+config/name="FSM StatePattern"
+config/icon="res://assets/Player.png"
+
+[autoload]
+
+Game="*res://src/AutoLoad/Game.tscn"
 
 [debug]
 
