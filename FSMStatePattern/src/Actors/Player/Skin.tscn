@@ -1,27 +1,46 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/Player.png" type="Texture" id=1]
 
 [sub_resource type="Animation" id=1]
-resource_name = "Fall"
+resource_name = "Die"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.25, 0.25 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
 
 [sub_resource type="Animation" id=2]
-resource_name = "Idle"
-loop = true
-
-[sub_resource type="Animation" id=3]
-resource_name = "Jump"
-
-[sub_resource type="Animation" id=4]
-resource_name = "Run"
+resource_name = "Spawn"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.25, 0.25 ),
+"update": 0,
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 1, 1 ) ]
+}
 
 [node name="Skin" type="Position2D"]
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 48 )
 texture = ExtResource( 1 )
+offset = Vector2( 0, -48 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Fall = SubResource( 1 )
-anims/Idle = SubResource( 2 )
-anims/Jump = SubResource( 3 )
-anims/Run = SubResource( 4 )
+anims/Die = SubResource( 1 )
+anims/Spawn = SubResource( 2 )
